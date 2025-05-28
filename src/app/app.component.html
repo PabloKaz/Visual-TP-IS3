@@ -1,9 +1,4 @@
-<div class="top-banner">
-  ¡Oferta para nuevos estudiantes! Termina en
-  <span class="countdown">{{ countdown }}</span>
-  <button class="offer-btn">Canjear</button>
-</div>
-
+<!-- layout horizontal: sidebar + contenido -->
 <div class="layout">
   <!-- Sidebar -->
   <nav
@@ -21,8 +16,16 @@
     </ng-container>
   </nav>
 
-  <!-- Main Content -->
+  <!-- Main content + scroll -->
   <div class="main">
+    <!-- ✅ Fijo arriba del contenido -->
+    <div class="top-banner">
+      ¡Oferta para nuevos estudiantes! Termina en
+      <span class="countdown">{{ countdown }}</span>
+      <button class="offer-btn">Canjear</button>
+    </div>
+
+    <!-- Header desplazable -->
     <header class="main-header">
       <div class="header-left flex items-center gap-3">
         <button
@@ -60,6 +63,7 @@
       </div>
     </header>
 
+    <!-- Página -->
     <router-outlet></router-outlet>
 
     <footer class="page-footer">
