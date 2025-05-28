@@ -27,9 +27,15 @@ interface Course {
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  currentYear: number = new Date().getFullYear();
+
   title = 'CodeSandbox';
 
-  sidebarOpen = true;
+  isSidebarOpen = true;
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
 
   courses: Course[] = [
     {

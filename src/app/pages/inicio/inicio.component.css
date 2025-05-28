@@ -269,3 +269,67 @@ mat-card.seccion-card > * {
   background-color: #007bff;
   color: white;
 }
+
+@media (max-width: 768px) {
+  mat-card.seccion-card {
+    padding: 1rem;
+    margin: 1.5rem auto;
+    width: 95%;
+  }
+
+  .inicio-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .carousel-wrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .carousel-card {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .carousel-img {
+    max-height: 200px;
+  }
+
+  .carousel-arrow {
+    display: none; /* en móvil es mejor navegación swipe/automática */
+  }
+
+  .carousel-content h2 {
+    font-size: 1.1rem;
+  }
+
+  .carousel-content p {
+    font-size: 0.9rem;
+  }
+
+  .plans-grid {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .plan-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .compact-card {
+    flex: 0 0 80%;
+    margin: 0 auto 1rem auto;
+  }
+
+  .compact-card h3 {
+    font-size: 1rem;
+  }
+
+  .compact-card .desc,
+  .compact-card .price {
+    font-size: 0.9rem;
+  }
+}

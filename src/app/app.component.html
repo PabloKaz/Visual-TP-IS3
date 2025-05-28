@@ -1,73 +1,77 @@
-<div class="promo-banner">
-  <div class="promo-text">
-    <strong>Oferta para nuevos estudiantes</strong>
-    <span>
-      | Cursos desde solo 10,99 US$. Haz clic en el botón para ver las
-      rebajas.</span
-    >
-    <strong> Ends in {{ countdown }}</strong>
-  </div>
-  <button class="promo-btn">Haz clic para canjear</button>
+<!-- Franja de oferta para nuevos estudiantes -->
+<div class="top-banner">
+  ¡Oferta para nuevos estudiantes! Termina en
+  <span class="countdown">{{ countdown }}</span>
 </div>
-
-<header class="main-header">
-  <div class="header-left">
-    <h1 class="logo">E-learning</h1>
-  </div>
-
-  <div class="header-center">
-    <div class="custom-search">
-      <span class="search-icon">🔍</span>
-      <input type="text" placeholder="Buscar cursos..." />
-    </div>
-  </div>
-
-  <div class="header-right">
-    <button class="teach-btn">Enseña en E-learning</button>
-    <button class="lang-btn">🌐</button>
-    <div class="user-info">
-      <span>Hola, Ana</span>
-      <img
-        src="https://placehold.co/40x40?text=A"
-        alt="avatar"
-        class="avatar"
-      />
-    </div>
-  </div>
-</header>
 
 <div class="layout">
   <!-- Sidebar -->
-  <nav class="sidebar" [class.open]="sidebarOpen" [class.closed]="!sidebarOpen">
-    <button
-      class="hamburger"
-      (click)="sidebarOpen = !sidebarOpen"
-      [class.active]="sidebarOpen"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+  <nav
+    class="sidebar"
+    [class.open]="isSidebarOpen"
+    [class.closed]="!isSidebarOpen"
+  >
+    <div class="hamburger-wrapper">
+      <button
+        class="hamburger"
+        [class.active]="isSidebarOpen"
+        (click)="toggleSidebar()"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
 
-    <ng-container *ngIf="sidebarOpen">
-      <button class="sidebar-btn" [routerLink]="['/inicio']">Inicio</button>
-      <button class="sidebar-btn" [routerLink]="['/perfil']">Perfil</button>
-      <button class="sidebar-btn" [routerLink]="['/configuracion']">
+    <ng-container *ngIf="isSidebarOpen">
+      <button class="sidebar-btn" routerLink="/inicio">Inicio</button>
+      <button class="sidebar-btn" routerLink="/perfil">Perfil</button>
+      <button class="sidebar-btn" routerLink="/configuracion">
         Configuración
       </button>
-      <button class="sidebar-btn" [routerLink]="['/dashboard']">
-        Dashboard
-      </button>
+      <button class="sidebar-btn" routerLink="/dashboard">Dashboard</button>
     </ng-container>
   </nav>
 
-  <!-- Main content -->
-  <main class="main">
-    <router-outlet></router-outlet>
-    <!-- 👈 Aquí se renderizarán las rutas -->
-  </main>
-</div>
+  <!-- Main Content -->
+  <div class="main">
+    <header class="main-header">
+      <!-- Logo -->
+      <div class="header-left">
+        <h1 class="logo">E-learning</h1>
+      </div>
 
-<footer class="page-footer">
-  <p>&copy; 2025 E-Learning Platform. Todos los derechos reservados.</p>
-</footer>
+      <!-- Buscador -->
+      <div class="header-center">
+        <div class="custom-search">
+          <mat-icon class="search-icon">search</mat-icon>
+          <input type="text" placeholder="Buscar cursos..." />
+        </div>
+      </div>
+
+      <!-- Botones usuario -->
+      <div class="header-right">
+        <button class="teach-btn">Enseñá en E-learning</button>
+        <button class="lang-btn">
+          <mat-icon>language</mat-icon>
+        </button>
+        <div class="user-info">
+          <span>Hola, Ana</span>
+          <img
+            src="https://placehold.co/40x40?text=A"
+            alt="avatar"
+            class="avatar"
+          />
+        </div>
+      </div>
+    </header>
+
+    <!-- Contenido dinámico -->
+    <router-outlet></router-outlet>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      © {{ currentYear }} E-learning. Todos los derechos reservados.
+    </footer>
+  </div>
+</div>
