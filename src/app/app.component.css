@@ -160,9 +160,9 @@
 }
 
 .custom-search .search-icon {
-  color: #888;
-  font-size: 1rem;
-  margin-right: 0.5rem;
+  color: #007bff;
+  font-size: 1.3rem;
+  margin-right: 0.7rem;
 }
 
 .custom-search input {
@@ -258,12 +258,62 @@
   }
 
   .main-header {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.6rem;
+    top: 2.5rem; /* manteniendo el sticky */
+    margin-top: 0.6rem; /* este margen crea separación visual */
   }
 
   .header-center {
     justify-content: center;
   }
+}
+
+.offer-btn {
+  background: white;
+  color: #007bff;
+  border: none;
+  padding: 0.2rem 0.8rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.offer-btn:hover {
+  background: #e0e0e0;
+}
+
+.teach-btn,
+.lang-btn {
+  padding: 0.4rem 1rem;
+  border: 2px solid #007bff;
+  background-color: white;
+  color: #007bff;
+  font-weight: 500;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.teach-btn:hover,
+.lang-btn:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.hamburger-wrapper {
+  margin-bottom: 1rem; /* antes era 2rem o más */
+  padding-top: 0.5rem;
+}
+
+.main-header {
+  margin-top: 0; /* ya no hace falta sumar espacio extra aquí */
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
