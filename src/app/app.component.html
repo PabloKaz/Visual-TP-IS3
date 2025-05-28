@@ -1,29 +1,17 @@
-<!-- Franja de oferta para nuevos estudiantes -->
-<div class="top-banner">
-  ¡Oferta para nuevos estudiantes! Termina en
-  <span class="countdown">{{ countdown }}</span>
-  <button class="offer-btn">Canjear</button>
-</div>
-
 <div class="layout">
+  <!-- Franja de oferta para nuevos estudiantes -->
+  <div class="top-banner">
+    ¡Oferta para nuevos estudiantes! Termina en
+    <span class="countdown">{{ countdown }}</span>
+    <button class="offer-btn">Canjear</button>
+  </div>
+
   <!-- Sidebar -->
   <nav
     class="sidebar"
     [class.open]="isSidebarOpen"
     [class.closed]="!isSidebarOpen"
   >
-    <div class="header-left flex items-center gap-3">
-      <button
-        class="hamburger"
-        [class.active]="isSidebarOpen"
-        (click)="toggleSidebar()"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-
     <ng-container *ngIf="isSidebarOpen">
       <button class="sidebar-btn" routerLink="/inicio">Inicio</button>
       <button class="sidebar-btn" routerLink="/perfil">Perfil</button>
@@ -37,12 +25,19 @@
   <!-- Main Content -->
   <div class="main">
     <header class="main-header">
-      <!-- Logo -->
-      <div class="header-left">
+      <div class="header-left flex items-center gap-3">
+        <button
+          class="hamburger"
+          [class.active]="isSidebarOpen"
+          (click)="toggleSidebar()"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <h1 class="logo">E-learning</h1>
       </div>
 
-      <!-- Buscador -->
       <div class="header-center">
         <div class="custom-search">
           <mat-icon class="search-icon">search</mat-icon>
@@ -50,7 +45,6 @@
         </div>
       </div>
 
-      <!-- Botones usuario -->
       <div class="header-right">
         <button class="teach-btn">Enseñá en E-learning</button>
         <button class="lang-btn">
@@ -67,10 +61,8 @@
       </div>
     </header>
 
-    <!-- Contenido dinámico -->
     <router-outlet></router-outlet>
 
-    <!-- Footer -->
     <footer class="page-footer">
       © {{ currentYear }} E-learning. Todos los derechos reservados.
     </footer>
