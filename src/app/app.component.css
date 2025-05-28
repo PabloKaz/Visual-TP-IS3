@@ -25,6 +25,21 @@
   font-family: monospace;
 }
 
+.offer-btn {
+  background: white;
+  color: #007bff;
+  border: none;
+  padding: 0.2rem 0.8rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.offer-btn:hover {
+  background: #e0e0e0;
+}
+
 /* --- Layout --- */
 .layout {
   display: flex;
@@ -40,16 +55,16 @@
   transition: width 0.3s ease;
   flex-shrink: 0;
   position: sticky;
-  top: 3.2rem; /* debajo del banner */
+  top: 3.2rem;
   z-index: 1;
 }
 
 .sidebar.open {
-  width: 200px;
+  width: 180px; /* reducido */
 }
 
 .sidebar.closed {
-  width: 60px;
+  width: 50px; /* reducido */
 }
 
 .main {
@@ -80,11 +95,8 @@
 
 /* --- Hamburger button --- */
 .hamburger-wrapper {
-  position: sticky;
-  top: 1rem;
-  z-index: 10;
-  background: #fff;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
 }
 
 .hamburger {
@@ -125,9 +137,16 @@
   padding: 0.8rem 2rem;
   border-bottom: 1px solid #e0e0e0;
   background-color: white;
-  position: sticky;
-  top: 2.5rem; /* debajo del banner */
-  z-index: 10;
+  position: relative; /* ya no sticky */
+  top: auto;
+  z-index: auto;
+  margin-top: 0;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .header-left .logo {
@@ -181,34 +200,25 @@
   gap: 1rem;
 }
 
-.teach-btn {
+.teach-btn,
+.lang-btn {
   padding: 0.4rem 1rem;
-  background-color: white;
   border: 2px solid #007bff;
+  background-color: white;
   color: #007bff;
   font-weight: 500;
   border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  font-size: 0.95rem;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
-.teach-btn:hover {
+.teach-btn:hover,
+.lang-btn:hover {
   background-color: #007bff;
   color: white;
-}
-
-.lang-btn {
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 0.4rem 0.7rem;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.lang-btn:hover {
-  background-color: #f0f0f0;
 }
 
 .user-info {
@@ -257,63 +267,7 @@
     padding: 0.3rem 0.6rem;
   }
 
-  .main-header {
-    top: 2.5rem; /* manteniendo el sticky */
-    margin-top: 0.6rem; /* este margen crea separación visual */
-  }
-
   .header-center {
     justify-content: center;
   }
-}
-
-.offer-btn {
-  background: white;
-  color: #007bff;
-  border: none;
-  padding: 0.2rem 0.8rem;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.offer-btn:hover {
-  background: #e0e0e0;
-}
-
-.teach-btn,
-.lang-btn {
-  padding: 0.4rem 1rem;
-  border: 2px solid #007bff;
-  background-color: white;
-  color: #007bff;
-  font-weight: 500;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  height: 38px;
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.teach-btn:hover,
-.lang-btn:hover {
-  background-color: #007bff;
-  color: white;
-}
-
-.hamburger-wrapper {
-  margin-bottom: 1rem; /* antes era 2rem o más */
-  padding-top: 0.5rem;
-}
-
-.main-header {
-  margin-top: 0; /* ya no hace falta sumar espacio extra aquí */
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
 }
