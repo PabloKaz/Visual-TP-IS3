@@ -1,0 +1,76 @@
+<!-- Cursos recomendados -->
+<mat-card class="seccion-card mat-elevation-z6">
+  <h1 class="inicio-title">Cursos Recomendados</h1>
+
+  <div class="carousel-wrapper">
+    <button class="carousel-arrow left" (click)="previous()">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+
+    <mat-card
+      class="carousel-card mat-elevation-z4"
+      [ngClass]="{ 'animated-fade': animate }"
+      (animationend)="animate = false"
+    >
+      <div class="carousel-content">
+        <img [src]="cursos[currentIndex].image" class="carousel-img" />
+        <h2>{{ cursos[currentIndex].title }}</h2>
+        <p>{{ cursos[currentIndex].description }}</p>
+
+        <div class="rating">
+          <ng-container
+            *ngFor="let filled of stars(cursos[currentIndex].rating)"
+          >
+            <mat-icon [ngClass]="{ filled: filled }">
+              {{ filled ? "star" : "star_border" }}
+            </mat-icon>
+          </ng-container>
+        </div>
+
+        <p class="price">{{ cursos[currentIndex].price }}</p>
+        <button mat-raised-button color="primary">Adquirir</button>
+      </div>
+    </mat-card>
+
+    <button class="carousel-arrow right" (click)="next()">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+</mat-card>
+
+<!-- Alumnos están viendo -->
+<mat-card class="seccion-card mat-elevation-z6">
+  <h2 class="section-title">Los alumnos están viendo</h2>
+  <div class="carousel-container">
+    <div class="carousel-track" [style.transform]="carouselTransform">
+      <div class="compact-card" *ngFor="let curso of loopedCourses">
+        <img [src]="curso.image" alt="imagen curso" />
+        <h3>{{ curso.title }}</h3>
+        <p class="price">{{ curso.price }}</p>
+        <p class="desc">{{ curso.description }}</p>
+      </div>
+    </div>
+  </div>
+</mat-card>
+
+<!-- Planes disponibles -->
+<mat-card class="seccion-card mat-elevation-z6">
+  <h2 class="section-title">Planes disponibles</h2>
+  <div class="plans-grid">
+    <mat-card class="plan-card mat-elevation-z3" *ngFor="let plan of plans">
+      <h3>{{ plan.title }}</h3>
+      <p class="plan-target">{{ plan.for }}</p>
+      <p class="plan-price">{{ plan.price }}</p>
+      <button mat-raised-button color="primary" class="plan-btn">
+        {{ plan.cta }}
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+      <ul class="plan-features">
+        <li *ngFor="let feature of plan.features">
+          <mat-icon class="check-icon">check_circle</mat-icon>
+          {{ feature }}
+        </li>
+      </ul>
+    </mat-card>
+  </div>
+</mat-card>

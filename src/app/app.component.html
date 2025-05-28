@@ -1,0 +1,73 @@
+<div class="promo-banner">
+  <div class="promo-text">
+    <strong>Oferta para nuevos estudiantes</strong>
+    <span>
+      | Cursos desde solo 10,99 US$. Haz clic en el botón para ver las
+      rebajas.</span
+    >
+    <strong> Ends in {{ countdown }}</strong>
+  </div>
+  <button class="promo-btn">Haz clic para canjear</button>
+</div>
+
+<header class="main-header">
+  <div class="header-left">
+    <h1 class="logo">E-learning</h1>
+  </div>
+
+  <div class="header-center">
+    <div class="custom-search">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Buscar cursos..." />
+    </div>
+  </div>
+
+  <div class="header-right">
+    <button class="teach-btn">Enseña en E-learning</button>
+    <button class="lang-btn">🌐</button>
+    <div class="user-info">
+      <span>Hola, Ana</span>
+      <img
+        src="https://placehold.co/40x40?text=A"
+        alt="avatar"
+        class="avatar"
+      />
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <!-- Sidebar -->
+  <nav class="sidebar" [class.open]="sidebarOpen" [class.closed]="!sidebarOpen">
+    <button
+      class="hamburger"
+      (click)="sidebarOpen = !sidebarOpen"
+      [class.active]="sidebarOpen"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ng-container *ngIf="sidebarOpen">
+      <button class="sidebar-btn" [routerLink]="['/inicio']">Inicio</button>
+      <button class="sidebar-btn" [routerLink]="['/perfil']">Perfil</button>
+      <button class="sidebar-btn" [routerLink]="['/configuracion']">
+        Configuración
+      </button>
+      <button class="sidebar-btn" [routerLink]="['/dashboard']">
+        Dashboard
+      </button>
+    </ng-container>
+  </nav>
+
+  <!-- Main content -->
+  <main class="main">
+    <router-outlet></router-outlet>
+    <!-- 👈 Aquí se renderizarán las rutas -->
+  </main>
+</div>
+
+<footer class="page-footer">
+  <p>&copy; 2025 E-Learning Platform. Todos los derechos reservados.</p>
+</footer>

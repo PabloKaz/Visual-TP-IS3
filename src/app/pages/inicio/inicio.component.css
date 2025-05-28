@@ -1,0 +1,271 @@
+/* ---------- ESTRUCTURA GENERAL DE SECCIONES ---------- */
+mat-card.seccion-card {
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2.5rem auto;
+  width: 90%;
+  max-width: 1400px;
+  background-color: #ffffff;
+  position: relative;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+@media (min-width: 1600px) {
+  mat-card.seccion-card {
+    width: 85%;
+  }
+}
+
+/* Efecto metálico en el borde */
+mat-card.seccion-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, #d4d4d4, #ffffff, #d4d4d4);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  pointer-events: none;
+  z-index: 0;
+}
+
+mat-card.seccion-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- CURSOS RECOMENDADOS ---------- */
+.inicio-title {
+  text-align: left;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.carousel-card {
+  background-color: white;
+  border-radius: 10px;
+  max-width: 700px;
+  width: 100%;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.carousel-content h2 {
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+}
+
+.carousel-content p {
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+}
+
+.rating mat-icon {
+  color: #ccc;
+  font-size: 24px;
+}
+
+.rating mat-icon.filled {
+  color: gold;
+}
+
+.price {
+  font-weight: bold;
+  margin: 0.5rem 0 1rem;
+}
+
+.carousel-arrow {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+  z-index: 2;
+}
+
+.carousel-arrow:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.carousel-arrow mat-icon {
+  font-size: 24px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.animated-fade {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ---------- CARRUSEL CALÉCITA ---------- */
+.section-title {
+  font-size: 1.5rem;
+  text-align: left;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.compact-card {
+  flex: 0 0 25%;
+  box-sizing: border-box;
+  padding: 1rem;
+  margin: 0.5rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.compact-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.compact-card h3 {
+  font-size: 1rem;
+  margin: 0.5rem 0 0.3rem;
+}
+
+.compact-card .desc {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.compact-card .price {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* ---------- PLANES DISPONIBLES ---------- */
+.plans-grid {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.plan-card {
+  width: 100%;
+  max-width: 320px;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background-color: #ffffff;
+}
+
+.plan-target {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.plan-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.plan-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.plan-features li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.check-icon {
+  color: green;
+  margin-right: 0.5rem;
+}
+
+/* ---------- NAVEGACIÓN COMPACTA ---------- */
+.next-button {
+  position: absolute;
+  right: 0;
+  top: 40%;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  z-index: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.next-button:hover {
+  background-color: #007bff;
+  color: white;
+}

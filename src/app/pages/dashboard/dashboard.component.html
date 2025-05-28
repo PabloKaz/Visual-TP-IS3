@@ -1,0 +1,18 @@
+<mat-card class="seccion-card mat-elevation-z6">
+  <div class="header">
+    <h1>Mis Cursos</h1>
+  </div>
+
+  <mat-card
+    class="user-course-card mat-elevation-z3"
+    *ngFor="let course of courses"
+  >
+    <img [src]="course.image" [alt]="course.title" class="course-img" />
+    <h2>{{ course.title }}</h2>
+    <p>{{ course.category }}</p>
+    <div class="progress-bar">
+      <div class="progress-bar-inner" [style.width.%]="course.progress"></div>
+    </div>
+    <p>{{ course.progress }}% completado</p>
+  </mat-card>
+</mat-card>
