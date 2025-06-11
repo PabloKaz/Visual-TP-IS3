@@ -16,22 +16,42 @@ export const routes: Routes = [
       {
         path: 'inicio',
         loadComponent: () =>
-          import('./pages/inicio/inicio.component').then((m) => m.InicioComponent),
+          import('./pages/inicio/inicio.component').then(
+            (m) => m.InicioComponent
+          ),
       },
       {
         path: 'dashboard',
         loadComponent: () =>
-          import('./pages/dashboard/dashboard.component').then((m) => m.DashboardComponent),
+          import('./pages/dashboard/dashboard.component').then(
+            (m) => m.DashboardComponent
+          ),
+      },
+      {
+        path: 'recomendador-tags',
+        canActivate: [AuthGuard],
+        loadComponent: () =>
+          import(
+            './pages/recomendador/recomendador-tags/recomendador-tags.component'
+          ).then((m) => m.RecomendadorTagsComponent),
+      },
+      {
+        path: 'recomendador-premium',
+        canActivate: [AuthGuard],
+        loadComponent: () =>
+          import(
+            './pages/recomendador/recomendador-premium/recomendador-premium.component'
+          ).then((m) => m.RecomendadorPremiumComponent),
       },
       {
         path: '',
         redirectTo: 'inicio',
         pathMatch: 'full',
-      }
-    ]
+      },
+    ],
   },
   {
     path: '**',
-    redirectTo: 'login'
-  }
+    redirectTo: 'login',
+  },
 ];

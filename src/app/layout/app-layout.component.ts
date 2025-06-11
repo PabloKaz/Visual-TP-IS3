@@ -97,4 +97,16 @@ export class AppLayoutComponent {
     localStorage.removeItem('usuario');
     this.router.navigate(['/login']);
   }
+
+  irARecomendador() {
+    const user = JSON.parse(localStorage.getItem('usuario') || '{}');
+
+    if (user?.rol === 'premium') {
+      this.router.navigate(['/recomendador-premium']);
+    } else if (user?.rol === 'no-premium') {
+      this.router.navigate(['/recomendador-tags']);
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
 }

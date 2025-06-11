@@ -1,0 +1,27 @@
+<div class="chat-container">
+  <h2>Asistente de Recomendaciones Premium</h2>
+
+  <div class="chat-box">
+    <div *ngFor="let msg of chatMessages" [ngClass]="msg.from">
+      <p>{{ msg.text }}</p>
+    </div>
+  </div>
+
+  <form (submit)="enviarMensaje()" class="chat-input">
+    <mat-form-field appearance="fill" class="input-field">
+      <input
+        matInput
+        placeholder="Contame qué te interesa aprender..."
+        [(ngModel)]="userMessage"
+        name="mensaje"
+      />
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Enviar</button>
+  </form>
+
+  <mat-card *ngIf="recomendado" class="curso-recomendado">
+    <img mat-card-image [src]="recomendado.imagen" alt="Curso recomendado" />
+    <mat-card-title>{{ recomendado.titulo }}</mat-card-title>
+    <mat-card-content>{{ recomendado.descripcion }}</mat-card-content>
+  </mat-card>
+</div>
