@@ -1,10 +1,37 @@
 import { Routes } from '@angular/router';
-import { InicioComponent } from './pages/inicio/inicio.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'inicio', pathMatch: 'full' },
-  { path: 'inicio', component: InicioComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  // Agregá otras rutas si querés
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./pages/login/login.component').then((m) => m.LoginComponent),
+  },
+  {
+    path: '',
+    canActivate: [AuthGuard],
+    loadComponent: () =>
+      import('./layout/app-layout.component').then((m) => m.AppLayoutComponent),
+    children: [
+      {
+        path: 'inicio',
+        loadComponent: () =>
+          import('./pages/inicio/inicio.component').then((m) => m.InicioComponent),
+      },
+      {
+        path: 'dashboard',
+        loadComponent: () =>
+          import('./pages/dashboard/dashboard.component').then((m) => m.DashboardComponent),
+      },
+      {
+        path: '',
+        redirectTo: 'inicio',
+        pathMatch: 'full',
+      }
+    ]
+  },
+  {
+    path: '**',
+    redirectTo: 'login'
+  }
 ];

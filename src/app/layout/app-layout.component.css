@@ -1,0 +1,295 @@
+/* --- Banner de oferta --- */
+.top-banner {
+  background-color: #007bff;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.top-banner .countdown {
+  font-weight: bold;
+  background: white;
+  color: #007bff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  font-family: monospace;
+}
+
+.offer-btn {
+  background: white;
+  color: #007bff;
+  border: none;
+  padding: 0.2rem 0.8rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.offer-btn:hover {
+  background: #e0e0e0;
+}
+
+/* --- Layout --- */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  padding: 1rem;
+  height: 100vh;
+  overflow-y: auto;
+  transition: width 0.3s ease;
+  flex-shrink: 0;
+  position: sticky;
+  top: 3.2rem;
+  z-index: 1;
+}
+
+.sidebar.open {
+  width: 180px; /* reducido */
+}
+
+.sidebar.closed {
+  width: 50px; /* reducido */
+}
+
+.main {
+  flex-grow: 1;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+}
+
+/* --- Sidebar buttons --- */
+.sidebar-btn {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 6px;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sidebar-btn:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* --- Hamburger button --- */
+.hamburger-wrapper {
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* --- Header --- */
+.main-header {
+  position: relative;
+  top: auto;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 2rem;
+  background-color: white;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.header-left .logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #007bff;
+  margin: 0;
+}
+
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.custom-search {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 2px solid #007bff;
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  width: 100%;
+  max-width: 500px;
+  transition: border-color 0.2s ease;
+}
+
+.custom-search:focus-within {
+  border-color: #0056b3;
+}
+
+.custom-search .search-icon {
+  color: #007bff;
+  font-size: 1.3rem;
+  margin-right: 0.7rem;
+}
+
+.custom-search input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 0.95rem;
+  background: transparent;
+  font-family: inherit;
+}
+
+/* --- Header right --- */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.teach-btn,
+.lang-btn {
+  padding: 0.4rem 1rem;
+  border: 2px solid #007bff;
+  background-color: white;
+  color: #007bff;
+  font-weight: 500;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.teach-btn:hover,
+.lang-btn:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+}
+
+/* --- Footer --- */
+.page-footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #f2f2f2;
+  color: #666;
+  font-size: 0.9rem;
+  border-top: 1px solid #ddd;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .custom-search {
+    max-width: 100%;
+    width: 90%;
+    font-size: 0.85rem;
+  }
+
+  .header-right {
+    gap: 0.6rem;
+  }
+
+  .teach-btn {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  .lang-btn {
+    font-size: 1rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .header-center {
+    justify-content: center;
+  }
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+.logout-btn:hover {
+  color: #0056b3;
+}
+
+.user-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  line-height: 1;
+}
